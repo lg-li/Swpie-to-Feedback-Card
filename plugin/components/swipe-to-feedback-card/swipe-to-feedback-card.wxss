@@ -1,0 +1,97 @@
+/* plugin/components/swipe-to-feedback-card/swipe-to-feedback-card.wxss */
+.card {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  border-radius: 20rpx;
+  box-shadow: 0rpx 0rpx 40rpx 10rpx rgba(0, 0, 0, 0.07);
+  text-shadow: 0rpx 0rpx 20rpx #333333;
+  background-color: #555555;
+  width: 70%;
+  height: 70%;
+}
+
+.card-hide-left {
+  opacity: 0;
+  left: -70%;
+  transition: all 0.8s ease-in-out;
+}
+
+.card-hide-right {
+  opacity: 0;
+  left: 170%;
+  transition: all 0.8s ease-in-out;
+}
+
+.card-option-container {
+  position: relative;
+  animation-name: card-option-animation;
+  animation-duration: 0.3s;
+}
+
+@keyframes card-option-animation
+{
+from {opacity: 0;  transform: scale(0.3)}
+to {opacity: 1; transform: scale(1)}
+}
+
+.card-option {
+  margin-top: 40rpx;
+  position: relative;
+  top: 30%;
+  left: 0;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+}
+
+.card-main-image{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx 20rpx;
+}
+
+
+.shadow {
+  box-shadow: 0rpx 0rpx 40rpx 10rpx rgba(0, 0, 0, 0.07);
+}
+
+.card-default-position {
+  position: absolute;
+  top: 40rpx;
+  left: 10%;
+}
+
+.card-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.card-title {
+  font-size: 48rpx;
+  color: #ffffff;
+}
+
+.card-subtitle {
+  margin-left: 10rpx;
+  font-size: 28rpx;
+  color: #ffffff;
+}
+
+.card-description {
+  font-size: 28rpx;
+  color: #eeeeee;
+  word-wrap: break-word
+}
+
+.margin {
+  margin: 20rpx
+}
+
+.empty-state {
+  padding-top: 20%;
+  text-align: center;
+  font-size: 32rpx;
+  color: #ffffff;
+}

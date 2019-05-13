@@ -1,0 +1,6 @@
+{
+  "publicComponents": {
+    "swipe-to-feedback-card": "components/swipe-to-feedback-card/swipe-to-feedback-card"
+  },
+  "main": "index.js"
+}

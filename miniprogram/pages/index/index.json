@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "swipe-to-feedback-card": "plugin://myPlugin/swipe-to-feedback-card"
+  }
+}
