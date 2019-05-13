@@ -2,16 +2,13 @@
 Component({
   lifetimes: {
     attached() {
-      console.log(this.data.list[0])
+      // 将当前项目设置为数组第一个元素
       this.setData({
         currentItem: this.data.list[0],
         currentItemIndex: 0
       })
     }
   },
-  /**
-   * 组件的属性列表
-   */
   properties: {
     list: {
       type: Array,
@@ -116,13 +113,18 @@ Component({
           }
         })
       }
-
-
+    },
+    onTap: function(e) {
+      // 单击事件
+      let url = e.currentTarget.dataset.item.url
+      if(url != null) {
+        wx.navigateTo({
+          url: url,
+        })
+      }
     },
     onSwiperChange: function(e) {
       let that = this
-      // console.log(e)
-      // console.log(this.data.currentItem)
       if (e.detail.source == 'out-of-bounds' || e.detail.source == 'touch-out-of-bounds') {
         if (e.detail.x <= 0) {
           // 不喜欢
@@ -136,6 +138,7 @@ Component({
           })
         }
       } else if (e.detail.source == 'touch') {
+        // 没有滑动到两端，未选择状态
         this.setData({
           currentCardOption: 0
         })

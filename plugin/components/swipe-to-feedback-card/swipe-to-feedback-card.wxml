@@ -1,13 +1,15 @@
 <!--plugin/components/swipe-to-feedback-card/swipe-to-feedback-card.wxml-->
 <movable-area class="card-container">
+  <!--没有数据时的空状态卡片-->
   <view class="card" style='z-index: -9999'>
     <view class="empty-state">
       <icon type="info" size="70" color="rgb(255,255,255)" />
-      <view  class="empty-state">{{emptyDescription}}</view>
+      <view class="empty-state">{{emptyDescription}}</view>
     </view>
   </view>
+  <!--可移动的卡片主体-->
   <movable-view direction="all" inertia="{{true}}" out-of-bounds="{{true}}" class="card {{(list[currentItemIndex].id==item.id)?(currentHideClass):''}}" damping="{{50}}" friction="{{2}}" wx:for="{{list}}" bindchange="onSwiperChange" bindtouchend='onFinshSwipe'
-    data-item="{{item}}" x="{{(list[currentItemIndex].id==item.id)?currentCardPosition.x:0}}" y="{{(list[currentItemIndex].id==item.id)?currentCardPosition.y:0}}" wx:key style='z-index: {{9999-index}}' disabled="{{list[currentItemIndex].id!=item.id}}">
+    bindtap='onTap' data-item="{{item}}" x="{{(list[currentItemIndex].id==item.id)?currentCardPosition.x:0}}" y="{{(list[currentItemIndex].id==item.id)?currentCardPosition.y:0}}" wx:key style='z-index: {{9999-index}}' disabled="{{list[currentItemIndex].id!=item.id}}">
     <image class="card-main-image" mode="aspectFill" src="{{item.url}}" />
     <view>
       <view class='margin card-option-container'>
@@ -21,8 +23,9 @@
       </view>
       <view class='card-option-container' wx:if="{{list[currentItemIndex].id==item.id}}">
         <view class='card-option'>
-        <icon type="success" size="70" color="rgb(255,255,255)" wx:if="{{currentCardOption == 1}}" />
-        <icon type="clear" size="70" color="rgb(255,255,255)" wx:elif="{{currentCardOption == -1}}"/>
+          <!--动态展示用户选项的图标-->
+          <icon type="success" size="70" color="rgb(255,255,255)" wx:if="{{currentCardOption == 1}}" />
+          <icon type="clear" size="70" color="rgb(255,255,255)" wx:elif="{{currentCardOption == -1}}" />
         </view>
       </view>
     </view>
