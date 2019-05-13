@@ -21,8 +21,8 @@
       </view>
       <view class='card-option-container' wx:if="{{list[currentItemIndex].id==item.id}}">
         <view class='card-option'>
-        <icon type="success" size="70" color="rgb(255,255,255)" wx:if="{{currentCardOption == -1}}" />
-        <icon type="clear" size="70" color="rgb(255,255,255)" wx:elif="{{currentCardOption == 1}}"/>
+        <icon type="success" size="70" color="rgb(255,255,255)" wx:if="{{currentCardOption == 1}}" />
+        <icon type="clear" size="70" color="rgb(255,255,255)" wx:elif="{{currentCardOption == -1}}"/>
         </view>
       </view>
     </view>
